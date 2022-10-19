@@ -1,12 +1,10 @@
 import React from 'react';
-import Cards from '../components/Cards';
-import 'bootstrap/dist/css/bootstrap.css';
-import "bootstrap/dist/js/bootstrap.bundle.min";
+import Cards from './Cards';
 
-
- const Post = () => {
+function Post() {
   return (
     <Cards/>
-  )
+  );
 }
-export default Posts;
+
+export default Post;
