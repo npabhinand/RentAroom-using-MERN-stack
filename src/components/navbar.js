@@ -10,11 +10,10 @@ function Navbar() {
     <div>
       <nav className="navbar fixed-top navbar-expand-lg navbar-light" style={{backgroundColor: "#e3f2fd"}}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            {" "}
-            <img src={logo} width="50px" height="50px" />
+          <Link className="navbar-brand" to="/">
+            <img src={logo} width="50px" height="50px" alt="Error occured" />
             RentARoom
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -35,7 +34,7 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <a className="nav-link fm-bold" href="#">
-                  pricing
+                  About
                 </a>
               </li>
               <li className="nav-item">
@@ -44,21 +43,10 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/registration">
+                <Link className="nav-link" to="/Signup">
                   Register
                 </Link>
               </li>
-              <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-        </li>
             </ul>
             <form className="d-flex" role="search">
               <input

@@ -1,14 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import "bootstrap/dist/js/bootstrap.bundle.min";
-import logo from './styles/1.svg';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link } from "react-router-dom";
 
-
 function SignIn() {
-  return (<div className='container'>
+  return (
+  <div className='container'>
     <h2 className="fw-bold mb-3 ">
-    <img className=""src={logo} width="50px" height="50px" />
     <p className="fw-bold mb-3 text-center">RentARoom</p></h2>
     <section className="vh-100 gradient-custom">
     <div className="container py-5 h-100">
@@ -41,7 +39,7 @@ function SignIn() {
             </div>
 
             <div>
-              <p className="mb-0">Don't have an account? <Link className="text-black-50 fw-bold" to="/registration">Sign Up</Link>
+              <p className="mb-0">Don't have an account? <Link className="text-black-50 fw-bold" to="/signu">Sign Up</Link>
               </p>
             </div>
           </div>

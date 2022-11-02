@@ -9,9 +9,10 @@ import {
 } from "react-router-dom";
 import Home from './components/Home';
 import SignIn from './components/signin';
-import Reg from './components/reg';
+import Signup from './components/Signup';
 import Ownerpage from './components/Ownerpage';
 import User from './components/User';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -25,14 +26,15 @@ function App() {
           <Route path="/login" element={<SignIn/>}>
         
           </Route>
-          <Route path="/registration" element={<Reg/>}>
+          <Route path="/signup" element={<Signup/>}>
         
           </Route>
           <Route path="/Owner" element={<Ownerpage/>}>
 
           </Route>
           <Route path="/User" element={<User/>}>
-
+            </Route>
+          <Route path="/User" element={<User/>}>
           </Route>
         </Routes>
         </Router>

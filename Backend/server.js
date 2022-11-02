@@ -1,31 +1,21 @@
-const express=require('express');
-const mongoose=require('mongoose');
-const cors=require('cors');
+require("dotenv").config();
+const express = require("express");
+const app = express();
+const cors = require("cors");
+const connection = require("./db");
+const userRoutes = require("./routes/users");
+const authRoutes = require("./routes/auth");
 
+// database connection
+connection();
 
-const app=express();
-
+// middlewares
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/rentaroom',{
-useNewUrlparser:true,
-useUnifiedtopology:true
-}).then(() =>console.log("connected to db")).catch(console.error);
+// routes
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
-const registerRouter=require('./src/components/routes/register.js')
-const signinRouter=require('./src/components/routes/signin')
-
-
-app.use('/register',registerRouter)
-app.use('/signin',signinRouter)
-
-app.listen(3001,()=>
-console.log("server connected"));
-
-
-
-
-
-
-
+const port = process.env.PORT || 8080;
+app.listen(port, console.log(`Listening on port ${port}...`));
