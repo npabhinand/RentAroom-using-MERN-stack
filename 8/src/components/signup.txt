@@ -1,0 +1,53 @@
+<div>
+  <main className="form-signin w-100 m-autobg- d-flex justify-content-center ">
+  <form style={{width:"400px"}} onSubmit={handleSubmit}>
+
+<div className='d-flex justify-content-center'>
+{/* <img className="mb-4 d-flex justify-content-between" src={logo} alt="" width="50px" height="50px"/><br></br> */}
+<h1 className="h3 mb-3 fw-normal">RentARoom</h1>
+</div>
+<div className='d-flex justify-content-center'>
+  <h1 className="h3 mb-3 fw-normal">Register</h1>
+  </div>
+  <div className="form-floating mb-1">
+    
+    <label for="floatingInput">Email address</label>
+  </div>
+  <div className="form-floating mb-1">
+    
+    <label for="floatingInput">Name</label>
+  </div>
+  <div className="form-floating mb-1">
+    <input type="text" className="form-control" id="floatingInput" onChange={handleChange} value={data.phone} required placeholder="Phone number"/>
+    <label for="floatingPassword">Phone Number</label>
+  </div>
+  
+   <div className="form-floating mb-1">
+    <input type="text" className="form-control" id="floatingInput" onChange={handleChange} value={data.place} required placeholder="name"/>
+    <label for="floatingInput">place</label>
+  </div>
+  <div className="form-floating mb-1">
+
+    <label for="floatingPassword">New Password</label>
+  </div>
+  <div className="form-floating mb-1" >
+      <label for="usertype">UserType:</label>
+        <input type="radio" value="student" name="usertype" onChange={e=>setType(e.target.value)} /> Student
+        <input type="radio" value="house owner" name="usertype" onChange={e=>setType(e.target.value)} />House Owner
+      </div>
+  <div className="form-floating mb-1" >
+      <label for="gender">Gender:</label>
+        <input type="radio" value="Male" name="gender" onChange={e=>setType(e.target.value)} /> Male
+        <input type="radio" value="Female" name="gender" onChange={e=>setType(e.target.value)} /> Female
+      </div>
+  <div className="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"/> I agree to the Terms and Conditions
+    </label>
+  </div>
+  <Link to="login">
+  <button className="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+  </Link>
+</form>
+</main>
+</div>
