@@ -1,21 +1,26 @@
-require("dotenv").config();
 const express = require("express");
+
 const app = express();
+app.use('/uploads', express.static('uploads'));
+
 const cors = require("cors");
-const connection = require("./db");
-const userRoutes = require("./routes/users");
-const authRoutes = require("./routes/auth");
-
-// database connection
-connection();
-
-// middlewares
-app.use(express.json());
+require("dotenv").config({ path: "./config.env" });
+const port = process.env.PORT || 5000;
 app.use(cors());
+app.use(express.json());
+app.use(require("./routes/user"));
+app.use(require("./routes/addroom"));
+app.use(require("./routes/login"));
+app.use(require("./routes/addinmate"));
+const dbo = require("./db/conn");
 
-// routes
-app.use("/api/users", userRoutes);
-app.use("/api/auth", authRoutes);
 
-const port = process.env.PORT || 8080;
-app.listen(port, console.log(`Listening on port ${port}...`));
+
+ 
+app.listen(port, () => {
+  dbo.connectToServer(function (err) {
+    if (err) console.error(err);
+ 
+  });
+  console.log(`Server is running on port: ${port}`);
+});

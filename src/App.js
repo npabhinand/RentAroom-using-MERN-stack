@@ -1,45 +1,61 @@
-
-import React from 'react';
+import React from 'react'
 import './App.css';
 import {
   BrowserRouter as Router,
-   Routes,
-  Route
+  Routes,
+  Route,
 
-} from "react-router-dom";
+} from 'react-router-dom';
 import Home from './components/Home';
-import SignIn from './components/signin';
+import Login from './components/Login';
 import Signup from './components/Signup';
-import Ownerpage from './components/Ownerpage';
-import User from './components/User';
+import Dashboard from './components/Dashboard';
+import Addroom from './components/Addroom';
+import UserHome from './components/UserHome';
+import Userprofile from './components/Userprofile';
+import Roomdetails from './components/Roomdetails';
+import  Houseowner  from './components/Houseowner';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-
 function App() {
-  
- return (
-    <Router>
-        <Routes>
-          <Route  path="/" element={<Home/>}>
-          </Route>
-          <Route path="/login" element={<SignIn/>}>
-        
-          </Route>
-          <Route path="/signup" element={<Signup/>}>
-        
-          </Route>
-          <Route path="/Owner" element={<Ownerpage/>}>
+  return (
+    // <Home />
 
-          </Route>
-          <Route path="/User" element={<User/>}>
-            </Route>
-          <Route path="/User" element={<User/>}>
-          </Route>
-        </Routes>
-        </Router>
+    <Router>
+    <Routes>
+      <Route  path="/" element={<Home/>}>
+      </Route>
+      <Route path="/login" element={<Login/>}>
+    
+      </Route>
+      <Route path="/signup" element={<Signup/>}>
+    
+      </Route>
+      <Route path="/userhome" element={<UserHome/>}>
+    
+      </Route>
+      <Route path="/houseowner" element={<Houseowner/>}>
+    
+    </Route>
+      
+      <Route path="/Dashboard" element={<Dashboard/>}>
+    
+      </Route>
+      
+      <Route path="/addroom" element={<Addroom/>}>
+    
+      </Route>
+      <Route path="/userprofile" element={<Userprofile/>}>
+    
+      </Route>
+
+      <Route path="/roomdetails" element={<Roomdetails/>}>
+      </Route>
+    </Routes>
+    </Router>
+
    
- )
+  );
 }
 
 export default App;
