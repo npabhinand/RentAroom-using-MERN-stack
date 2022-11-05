@@ -7,12 +7,14 @@ export default function Userprofile(props) {
   const [user, setUser] = useState([]);
   const [searchParams] = useSearchParams();
   const userId = searchParams.get("id");
-  
+ 
   // This method fetches the user from the database.
   useEffect(() => {
+    console.log("----")
+    console.log("-------------"+userId.substring(3))
     async function getUser() {
-      const response = await fetch(`http://localhost:5000/login/${userId}`);
-
+      const response = await fetch(`http://localhost:5000/user/${userId.substring(3)}`);
+      console.log(response)
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
         window.alert(message);
@@ -67,7 +69,7 @@ export default function Userprofile(props) {
                   style={{ height: "36px" }}
                 >
                   
-                  <p className="h3">other details</p>
+                <p className="h3">{user.phone}</p>
                 </p>
                 <div className="d-flex justify-content-left text-center py-1">
                   <div>

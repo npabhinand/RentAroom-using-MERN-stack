@@ -1,11 +1,36 @@
-import React from 'react'
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import {Link} from 'react-router-dom';
-
+import { useEffect,useState } from 'react';
+import {Link,useSearchParams} from 'react-router-dom';
 
  const UserNav = () => {
+  const [records, setRecords] = useState([]);
+  const [id] = useSearchParams();
+
+
+
+  useEffect(()=>{
+    async function getRecords(){
+      const response=await fetch(`http://localhost:5000/userhome/`);
+      console.log(response);
+      if(!response.ok){
+        const message = `An error occured: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+      const records= await response.json();
+      console.log(records);
+      setRecords(records);
+    }
+    getRecords();
+
+
+    // console.log("ROOM ID ::: ", roomid);
+    // console.log("RECORDS ::: ", records);
+
+  }, [records.length]);
   return  (
     <Navbar collapseOnSelect expand="lg" value="yes" bg="primary" variant="dark">
       <Container>
@@ -18,7 +43,11 @@ import {Link} from 'react-router-dom';
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.2">
-                <Link to="/userprofile" style={{color:"dark", textDecoration:"none"}}>Profile</Link> 
+                <Link to={"/userprofile?userid=" +id} style={{color:"dark", textDecoration:"none"}}>Profile</Link> 
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.3">
+                <Link to="/" style={{color:"dark", textDecoration:"none"}}>logout</Link> 
               </NavDropdown.Item>
             </NavDropdown>
         </Navbar.Collapse>

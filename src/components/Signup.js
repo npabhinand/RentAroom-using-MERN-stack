@@ -124,10 +124,12 @@ function Signup() {
     <Form.Group className="mb-3" controlId="formBasicCheckbox">
       <Form.Check type="checkbox" label="I agree the given information is correct." required/>
     </Form.Group>
+    <div className="text-center">
     <Button variant="primary" type="submit"  value="Create user">
       Submit
       
     </Button>
+    </div>
   </Form>
   <br/>
   </Container>

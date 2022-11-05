@@ -26,12 +26,12 @@ function Login() {
     );
     console.log(usertype);
     
-    if (result.type == 'none')
+    if (result.type === 'none')
     {
       window.alert("Login failed");
 
     }
-  else if(result.type == 'student') 
+  else if(result.type === 'student') 
     {
       console.log("student redirecting");
       navigate({
@@ -41,7 +41,7 @@ function Login() {
         }).toString()
       });
     }
-    else if(result.type == 'owner')
+    else if(result.type === 'owner')
     {
       console.log("house owner redirecting");
       navigate({
@@ -62,7 +62,10 @@ function Login() {
 
     <Navbar1/>
     <br/>
+   
     <Container className="square border border-dark ">
+      <br/>
+    <h3 className="text-center">LOGIN</h3>
     <Form onSubmit={handleSubmit}>
       <br/>
     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -76,7 +79,6 @@ function Login() {
     </Form.Group>
     <div className='text-center'>
     <Button variant="primary " type="submit" >
-     {/* <Link to="/userhome" style={{color:"white", textDecoration:"none"}}>Login</Link> */}
     Login
     </Button>
     </div>

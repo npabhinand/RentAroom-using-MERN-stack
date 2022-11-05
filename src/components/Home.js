@@ -10,25 +10,27 @@ import HomeCarousel from './HomeCarousel';
 function Home() {
   return (
     <>
-    <Row><Navbar1/></Row>
-    
     <Container>
+    <Row><Navbar1/></Row>
+    <br/>
+    
     <Row><HomeCarousel/></Row>
-    <Row>
+    <Row >
       <Col><h1>New Rooms</h1> </Col>
       
     </Row>
-    <Row> <RoomCard/></Row>
-    <Row>
-      <Col><h1>Boys Rooms</h1> </Col>
+    <Row  lg={3}> <RoomCard/></Row>
+    <Row lg={3}>
+      <h1>Boys Rooms</h1> 
       
-    </Row>
-    <RoomCard/> 
-    <Row>
+    </Row ><Row lg={3}><RoomCard/></Row>
+     
+    <Row >
       <Col><h1>Girls Rooms</h1> </Col>
       
     </Row>
-    <RoomCard/> 
+    <Row  lg={3}><RoomCard/></Row>
+     
   </Container>
   </>
   )

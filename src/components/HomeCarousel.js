@@ -12,8 +12,7 @@ export default function HomeCarousel() {
         alt="First slide"
       />
       <Carousel.Caption>
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <h5>RentARoom</h5>
       </Carousel.Caption>
     </Carousel.Item>
     <Carousel.Item>
@@ -35,9 +34,6 @@ export default function HomeCarousel() {
       />
       <Carousel.Caption>
         <h5>Third slide label</h5>
-        <p>
-          Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-        </p>
       </Carousel.Caption>
     </Carousel.Item>
   </Carousel>
