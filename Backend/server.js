@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(require("./routes/user"));
 app.use(require("./routes/addroom"));
 app.use(require("./routes/login"));
-app.use(require("./routes/addinmate"));
+app.use(require("./routes/roomBooking"));
 const dbo = require("./db/conn");
 
 

@@ -5,6 +5,7 @@ import { useEffect,useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export default function Roomdetails(props) {
+  const userId = localStorage.getItem("userId");
   const { search } = useLocation();
   const roomid = new URLSearchParams(search).get("roomid")
   const data = roomid.split('?')
@@ -14,16 +15,22 @@ export default function Roomdetails(props) {
 
     const handleClick  = async (e) => {
       e.preventDefault();
-      const datas = {roomid: data[0], userid: data[1].substring(3)};
-      const result = await fetch("http://localhost:5000/addinmate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(datas),
-      }).then(
-        result => result.json()
-      );
+      console.log(records)
+      const status=window.confirm("Do you want to reserve room?")
+      if(status){
+        const datas = {roomid: records._id, userid: userId,ownerId:records.ownerId};
+        const result = await fetch("http://localhost:5000/reserve", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(datas),
+        }).then(
+          result => result.json()
+        );
+
+      }
+      
     }
 
 
@@ -52,9 +59,10 @@ export default function Roomdetails(props) {
     <>
   <UserNav/>
   <br/>
-  <div className='container square border border-dark text-center'>
-   
-    <Carousel variant="dark d-block w-75 text-center">
+  <div className='container square border border-dark text-center '>
+   <div className='d-flex justify-content-center'>
+
+   <Carousel variant="dark d-block w-75 h-75 text-center ">
     <Carousel.Item className="text-center">
     
       <img
@@ -92,17 +100,20 @@ export default function Roomdetails(props) {
       </Carousel.Caption>
     </Carousel.Item>
   </Carousel>
+   </div>
+ 
   
  
-  <p >House Name:{records.property_name}</p>
-  <p >Price:{records.rate}</p>
-  <p >Types:{records.types}</p>
+  <p >House Name: {records.property_name}</p>
+  <p >Price: {records.rate}</p>
+  <p >Types: {records.types=="house"?"House":"Room"}</p>
   <p >Accomodation For:{records.accomodation_for}</p>
   <p >Total Bedrooms:{records.total_bedroom}</p>
   <p>No of persons/room:{records.person_per_room}</p>
-  <p>description: {records.description}</p>
+  <p>Description: {records.description}</p>
+  <p>Status: {records.status=="reserved"?"Room is already enquired.Please check after sometime":"Available"}</p>
  <form onSubmit={handleClick}>
- <Button type="submit">Booknow</Button>
+ <Button disabled={records.status=="reserved"} type="submit">Book Now</Button>
  </form>
   <br/> <br/>
   </div>

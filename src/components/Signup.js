@@ -62,6 +62,7 @@ function Signup() {
     <Container className="fluid-mdc square border border-dark ">
     <Form onSubmit={onSubmit}>
       <br/>
+      <p className="text-center h3">Sign up</p><br/>
     <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridUserType">
         <Form.Label>UserType</Form.Label>

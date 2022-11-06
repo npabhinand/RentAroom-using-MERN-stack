@@ -3,34 +3,22 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useEffect,useState } from 'react';
-import {Link,useSearchParams} from 'react-router-dom';
-
+import { useNavigate, createSearchParams,
+  useParams, useSearchParams,Link  } from 'react-router-dom';
+  
  const UserNav = () => {
   const [records, setRecords] = useState([]);
   const [id] = useSearchParams();
-
-
-
-  useEffect(()=>{
-    async function getRecords(){
-      const response=await fetch(`http://localhost:5000/userhome/`);
-      console.log(response);
-      if(!response.ok){
-        const message = `An error occured: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
-      const records= await response.json();
-      console.log(records);
-      setRecords(records);
-    }
-    getRecords();
-
-
-    // console.log("ROOM ID ::: ", roomid);
-    // console.log("RECORDS ::: ", records);
-
-  }, [records.length]);
+  const navigate = useNavigate();
+  const userpass = () => {
+    console.log("student redirecting");
+      navigate({
+        pathname: "/userprofile",
+        search: createSearchParams({
+          id: id
+        }).toString()
+      });
+  }
   return  (
     <Navbar collapseOnSelect expand="lg" value="yes" bg="primary" variant="dark">
       <Container>
@@ -43,7 +31,7 @@ import {Link,useSearchParams} from 'react-router-dom';
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.2">
-                <Link to={"/userprofile?userid=" +id} style={{color:"dark", textDecoration:"none"}}>Profile</Link> 
+              <a onClick={userpass}>profile</a>
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.3">
@@ -51,7 +39,7 @@ import {Link,useSearchParams} from 'react-router-dom';
               </NavDropdown.Item>
             </NavDropdown>
         </Navbar.Collapse>
-      </Container>
+        </Container>
     </Navbar>
   );
 }

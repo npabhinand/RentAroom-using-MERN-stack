@@ -12,7 +12,6 @@ function Navbar1() {
       <Nav className="me-auto">
       
         <Nav.Link ><Link to="/" style={{color:"white", textDecoration:"none"}}>Home</Link></Nav.Link>
-        <Nav.Link ><Link to="/addroom" style={{color:"white", textDecoration:"none"}}>AddRoom</Link></Nav.Link>
         <Nav.Link ><Link to="/login" style={{color:"white", textDecoration:"none"}}>Login</Link></Nav.Link>
         <Nav.Link ><Link to="/signup" style={{color:"white", textDecoration:"none"}}>SignUp</Link></Nav.Link>
       </Nav> 

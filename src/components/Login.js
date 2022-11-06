@@ -33,6 +33,7 @@ function Login() {
     }
   else if(result.type === 'student') 
     {
+      localStorage.setItem("userId",result._id)
       console.log("student redirecting");
       navigate({
         pathname: "/userhome",
@@ -44,6 +45,7 @@ function Login() {
     else if(result.type === 'owner')
     {
       console.log("house owner redirecting");
+      localStorage.setItem("userId",result._id)
       navigate({
         pathname: '/houseowner',
         search: createSearchParams({
@@ -56,6 +58,7 @@ function Login() {
   const [usertype, setUsertype] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
+
   
   return (
     <>
@@ -63,8 +66,8 @@ function Login() {
     <Navbar1/>
     <br/>
    
-    <Container className="square border border-dark ">
-      <br/>
+    <Container className="square border border-dark " style={{width:1000,height:500}}>
+      <br/><br/>
     <h3 className="text-center">LOGIN</h3>
     <Form onSubmit={handleSubmit}>
       <br/>
@@ -77,6 +80,7 @@ function Login() {
       <Form.Label>Password</Form.Label>
       <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
     </Form.Group>
+    <br/><br/>
     <div className='text-center'>
     <Button variant="primary " type="submit" >
     Login

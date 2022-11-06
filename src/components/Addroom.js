@@ -13,10 +13,13 @@ import Row from "react-bootstrap/Row";
 // import formData from "form-data";
 
 function Addroom() {
+  const userId = localStorage.getItem("userId");
+  
   const [form, setForm] = useState({
     property_name: "",
     types: "house",
     rate: "",
+    ownerId:userId,
     accomodation_for: "Boys",
     total_bedroom: "",
     person_per_room: "",
@@ -51,6 +54,9 @@ function Addroom() {
     //     "Content-Type": "application/json",
     //  },
     //  body: JSON.stringify(addRoom),
+   }).then(res=>{
+    console.log(res)
+    window.alert("Room Added succussfully");
    })
    .catch(error => {
      window.alert(error);

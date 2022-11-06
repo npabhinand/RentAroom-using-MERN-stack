@@ -10,17 +10,19 @@ import HomeCarousel from './HomeCarousel';
 function Home() {
   return (
     <>
-    <Container>
+    
     <Row><Navbar1/></Row>
     <br/>
-    
+    <Container>
     <Row><HomeCarousel/></Row>
     <Row >
+    <br/>
       <Col><h1>New Rooms</h1> </Col>
       
     </Row>
     <Row  lg={3}> <RoomCard/></Row>
     <Row lg={3}>
+    <br/>
       <h1>Boys Rooms</h1> 
       
     </Row ><Row lg={3}><RoomCard/></Row>

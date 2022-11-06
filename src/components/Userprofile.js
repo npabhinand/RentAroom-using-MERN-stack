@@ -55,7 +55,8 @@ export default function Userprofile(props) {
                 </div>
 
                 <div className="ms-5" style={{ marginTop: "130px" }}>
-                  <h5>{user.name}</h5>
+                  
+                  <h5>User Type: {user.usertype}</h5>
                   <Card.Text></Card.Text>
                 </div>
               </Card.Body>
@@ -69,25 +70,19 @@ export default function Userprofile(props) {
                   style={{ height: "36px" }}
                 >
                   
-                <p className="h3">{user.phone}</p>
+                <p className="h3">Name:{user.name}</p>
                 </p>
                 <div className="d-flex justify-content-left text-center py-1">
                   <div>
-                    <Card.Text className="mb-1 h5">place</Card.Text>
+                    <Card.Text className="mb-1 h5">Place</Card.Text>
                     <Card.Text className="small text-muted mb-0">
-                      {/* Photos */}
+                      <p className="h5">{user.place}</p>
                     </Card.Text>
                   </div>
                   <div className="px-3">
-                    <Card.Text className="mb-1 h5">1026</Card.Text>
+                    <Card.Text className="mb-1 h5">Phone No:</Card.Text>
                     <Card.Text className="small text-muted mb-0">
-                      Followers
-                    </Card.Text>
-                  </div>
-                  <div>
-                    <Card.Text className="mb-1 h5">478</Card.Text>
-                    <Card.Text className="small text-muted mb-0">
-                      Following
+                      {user.phone}
                     </Card.Text>
                   </div>
                 </div>

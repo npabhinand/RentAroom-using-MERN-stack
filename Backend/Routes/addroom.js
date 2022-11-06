@@ -76,8 +76,10 @@ addRoomRoutes.route("/addroom/add").post(upload.single('file'),function (req, re
    person_per_room: req.body.person_per_room,
    description: req.body.description,
    furniture: req.body.furniture, 
+   ownerId: req.body.ownerId, 
    bathroom_type: req.body.bathroom_type,
    purifier: req.body.purifier,
+   status: "available",
    image: req.file.filename,
  }
 //  console.log("file[0] : ",req.body.file[0]);
@@ -102,7 +104,9 @@ addRoomRoutes.route("/update/:id").post(function (req, response) {
    total_bedroom: req.body.total_bedroom,
    person_per_room: req.body.person_per_room,
    description: req.body.description,
+
    furniture: req.body.furniture,
+   ownerId: req.body.ownerId, 
    bathroom_type: req.body.bathroom_type,
    purifier: req.body.purifier,
 

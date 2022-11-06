@@ -22,11 +22,12 @@ loginRoute.route("/login").post(function (req, res, next) {
    .find({email: email})
    .toArray(function (err, result) {
       // console.log(result);
+      // console.log(result[0]._id.str)
       bcrypt.compare(password, result[0].password, function(err, res){
             console.log("--------------"+ result[0].usertype);
          if (res){
             passwordMatch = true;
-            if (passwordMatch && result[0].usertype=='student')
+           if (passwordMatch && result[0].usertype=='student')
             {
                ress.send({type: 'student', _id:result[0]._id});
             }
